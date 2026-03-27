@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const LoginRoutes = require('./src/routes/LoginRoutes');
+const LoginRoutes = require('./src/routes/loginRoutes');
 
 // Configurações do servidor
 const app = express();
