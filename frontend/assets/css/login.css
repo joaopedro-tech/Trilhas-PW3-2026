@@ -78,3 +78,13 @@ transition:0.3s;
 .login-box button:hover{
 background:#2968c8;
 }
+
+.link{
+ display:block;
+ margin-top:15px;
+ color:#3483fa;
+ text-decoration:none;
+}
+.link:hover{
+ text-decoration:underline;
+}

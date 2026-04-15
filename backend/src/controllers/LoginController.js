@@ -4,17 +4,17 @@ const userModel = require("../models/userModel");
 
 const SECRET_KEY = "segredo123";
 
-exports.login = async (req, res) => {
+exports.login = (req, res) => {
    const { email, password } = req.body
    userModel.findByEmail(email, (user) => {
        if(!user){
            return res.status(401).json({
-               message: "Usuário não encontrado"
+               message: "Usuário não encontrado",
            })
-       } 
+       }
        if(user.password !== password){
            return res.status(401).json({
-               message: "Senha inválida"
+               message: "Senha inválida",
            })
        }
        const token = jwt.sign(
@@ -23,7 +23,7 @@ exports.login = async (req, res) => {
                email: user.email,
                role: user.role
            },
-           SECRET,
+           SECRET_KEY,
            { expiresIn: "1h" }
        )
 
@@ -35,3 +35,4 @@ exports.login = async (req, res) => {
 
    })
 }
+
